@@ -2,62 +2,24 @@
 
 <html lang="en">
   <head>
-    <title>Election</title>
+    <title>Worldland Voting</title>
   </head>
 
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="/index.css" rel="stylesheet">
 
   <body>
-    <!-- This component will be used to create a new election -->
-    <center id="newElectionButton">
-      <div onclick="toggleNewElectionForm()">
-        <img src="https://img.icons8.com/color/48/000000/plus-math.png"/><br>
+    <h1 style="text-align: center; font-weight: bold;">Worldland Voting</h1><br>
+    <!-- Account address will be rendered here -->
+    <font size = 2>
+        <center><b>Your Account:</b></center>
+        <center id="account"></center>
+    </font>
 
-        <font size = 2>
-          <b>New Election</b>
-        </font>
-      </div>
-    </center>
-
-    <!-- This component contains form to create election -->
-    <div id="newElectionForm" class="card">
-      <!-- Cross image to hide form -->
-      <span>
-        <img onclick="toggleNewElectionForm()" src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png"/>
-      </span>
-
-      <!-- This form will take details of new election and submit a transaction to the network -->
-      <form id="formData" onsubmit="submitNewElection(); return false;">
-        <font size = 2><b>Election title</b></font><br>
-        <input name="details[]" placeholder="Name your election" required><br><br>
-
-        <font size = 2><b>Election description</b></font><br>
-        <input name="details[]" placeholder="Describe something about this election" required style="width: 80%;"><br><br>
-
-        <div>
-          <span>
-            <font size = 2><b>1st Candidate name</b></font><br>
-            <input name="candidates[]" placeholder="Candidate name" required>
-          </span>
-
-          <span>
-            <font size = 2><b>2nd Candidate name</b></font><br>
-            <input name="candidates[]" placeholder="Candidate name" required>
-          </span>
-        </div>
-
-        <br><br>
-
-        <input type="submit" class="btn btn-primary">
-      </form>
-    </div>
+    <br>
 
     <!-- List of elections on the network will appear here -->
-    <div id="electionContainer" class="card">
-      <!-- Account address will be rendered here -->
-      <center id="account"></center>
-
+    <div id="electionContainer" class="card">     
       <!-- Loading will appear until blockchain data is loaded -->
       <center id='loader'>
         <span class="spinner-border text-primary"></span>
@@ -68,7 +30,9 @@
         <img onclick="ElectionData.get()" src="https://img.icons8.com/color/50/000000/synchronize.png"/>
       </span>
 
-      <br><br>
+    <font size = 5>
+        <center><b>Current Elections:</b></center>
+    </font>
 
       <!-- Election data will appear here -->
       <div id="elections" class="container">
@@ -86,6 +50,45 @@
         </table>
       </div>
     </div>
+
+    <!-- This component will be used to create a new election -->
+    <center id="newElectionButton">
+        <div onclick="toggleNewElectionForm()">
+          <img src="https://img.icons8.com/color/48/000000/plus-math.png"/><br>
+  
+          <font size = 2>
+            <b>Start a New Election</b>
+          </font>
+        </div>
+    </center>
+
+    <!-- This component contains form to create election -->
+    <div id="newElectionForm" class="card">
+        <!-- Cross image to hide form -->
+        <span>
+        <img onclick="toggleNewElectionForm()" src="https://img.icons8.com/emoji/48/000000/cross-mark-emoji.png"/>
+        </span>
+
+        <!-- This form will take details of new election and submit a transaction to the network -->
+        <form id="formData" onsubmit="submitNewElection(); return false;">
+        <font size = 2><b>Election title</b></font><br>
+        <input name="details[]" placeholder="Name your election" required><br><br>
+
+        <font size = 2><b>Election description</b></font><br>
+        <input name="details[]" placeholder="Describe something about this election" required style="width: 100%;"><br><br>
+
+        <font size = 2><b>1st Candidate name</b></font><br>
+        <input name="candidates[]" placeholder="Candidate name" required><br><br>
+
+        <font size = 2><b>2nd Candidate name</b></font><br>
+        <input name="candidates[]" placeholder="Candidate name" required>
+
+        <br><br>
+    
+        <center><input type="submit" class="btn btn-primary"></center>
+        </form>
+    </div>
+
   </body>
 
   <!--jQuery CDN-->
